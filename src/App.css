@@ -2,11 +2,11 @@
     width:10px;
 }
 .yt-scrollbar::-webkit-scrollbar-thumb{
-    background: rgb(248, 246, 246)107, 107, 107;
+    background: transparent;
     border-radius: 10px;
 }
 .yt-scrollbar::-webkit-scrollbar-thumb:hover{
-    background: rgb(199, 197, 197);
+    background: rgb(97, 97, 97);
 }
 .yt-scrollbar::-webkit-scrollbar-track{
     background: transparent;
