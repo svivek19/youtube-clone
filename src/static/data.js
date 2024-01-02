@@ -38,3 +38,8 @@ export const SidebarItem = {
         {icon:<GiDress size={21}/>, name:"Fashion & beauty"},
     ],
 }
+
+
+export const CategoryItems = [
+    "All","Musics","Mixes","Silicon Vally","Gaming","Comedy","Drama's","Kollywood","Tollywood","Hollywood","Cricket","Technology","Programing","Life style","Business","Politics",
+];
