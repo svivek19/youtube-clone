@@ -10,7 +10,7 @@ export default function Sidebar() {
                 {
                     SidebarItem.Top.map((item, index) => {
                         return (
-                            <div className={`h-10 flex justify-start px-3 rounded-xl items-center cursor-pointer hover:bg-gray-900  my-1 ${item.name === active ? "bg-gray-900" : "bg-black"}`}
+                            <div className={`h-10 flex justify-start px-3 rounded-xl items-center cursor-pointer dim-hover  my-1 ${item.name === active ? "dim-gray" : "bg-black"}`}
                                 key={index}
                                 onClick={() => setActive(item.name)}
                             >
@@ -27,7 +27,7 @@ export default function Sidebar() {
                 {
                     SidebarItem.Middle.map((item, index) => {
                         return (
-                            <div className={`h-10 flex justify-start px-3 rounded-xl items-center cursor-pointer hover:bg-gray-900  my-1 ${item.name === active ? "bg-gray-900" : "bg-black"}`}
+                            <div className={`h-10 flex justify-start px-3 rounded-xl items-center cursor-pointer dim-hover  my-1 ${item.name === active ? "dim-gray" : "bg-black"}`}
                                 key={index}
                                 onClick={() => setActive(item.name)}
                             >
@@ -45,7 +45,7 @@ export default function Sidebar() {
                 {
                     SidebarItem.Explore.map((item, index) => {
                         return (
-                            <div className={`h-10 flex justify-start px-3 rounded-xl items-center cursor-pointer hover:bg-gray-900  my-1 ${item.name === active ? "bg-gray-900" : "bg-black"}`}
+                            <div className={`h-10 flex justify-start px-3 rounded-xl items-center cursor-pointer dim-hover  my-1 ${item.name === active ? "dim-gray" : "bg-black"}`}
                                 key={index}
                                 onClick={() => setActive(item.name)}
                             >

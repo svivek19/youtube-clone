@@ -2,12 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     overflow-x: hidden;
+}
+
+.dim-gray {
+    background-color: rgb(17, 17, 17);
+}
+.dim-hover:hover{
+    background-color: rgb(17, 17, 17);
 }

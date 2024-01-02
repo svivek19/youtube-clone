@@ -29,7 +29,7 @@ export const SidebarItem = {
     Explore:[
         {icon:<HiOutlineFire size={21}/>, name:"Trending"},
         {icon:<IoMusicalNoteOutline size={21}/>, name:"Music"},
-        {icon:<MdOutlineLocalMovies size={21}/>, name:"Moives"},
+        {icon:<MdOutlineLocalMovies size={21}/>, name:"Movies"},
         {icon:<HiSignal size={21}/>, name:"Live"},
         {icon:<SiYoutubegaming size={21}/>, name:"Gaming"},
         {icon:<BsNewspaper size={21}/>, name:"News"},
