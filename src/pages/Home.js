@@ -13,15 +13,15 @@ const Home = () => {
     const q = query(collection(db, "videos"));
     onSnapshot(q, (snapShot) => {
       setVideos(
-      snapShot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }))
+        snapShot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }))
       );
     });
   }, []);
 
-  console.log(videos);
+  // console.log(videos);
 
   return (
     <div className='flex'>
@@ -45,10 +45,12 @@ const Home = () => {
               <div className='h-[86vh]'></div>
             ) : (
               videos.map((video, index) => {
+                // console.log("Video details:", video);
+                return(
                 <Link to={`/video/${video.id}`} key={video.id}>
-                  <Video {...video} />
+                  <Video {...video}/>
                 </Link>
-
+                )
               })
             )
           }
