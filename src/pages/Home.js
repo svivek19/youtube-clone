@@ -12,12 +12,14 @@ const Home = () => {
   useEffect(() => {
     const q = query(collection(db, "videos"));
     onSnapshot(q, (snapShot) => {
+      setVideos(
       snapShot.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
       }))
-    })
-  })
+      );
+    });
+  }, []);
 
   console.log(videos);
 

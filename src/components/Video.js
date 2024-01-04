@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Video = ({thumnail,duration,title,channel,views,uoloadTime}) => {
-  console.log(thumnail,duration,title,channel,views,uoloadTime);
+const Video = ({thumbnail,duration,title,channel,views,uploadTime}) => {
+  console.log(thumbnail,duration,title,channel,views,uploadTime);
   return (
     <div>
       videos
