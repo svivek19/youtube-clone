@@ -5,7 +5,7 @@ import '../App.css'
 export default function Sidebar() {
     const [active, setActive] = useState("Home");
     return (
-        <div className='yt-scrollbar scrollbar-hide w-60 bg-black h-screen top-0 left-0 text-white p-3 overflow-scroll'>
+        <div className='yt-scrollbar scrollbar-hide w-60 bg-black h-full top-0 left-0 text-white p-3 overflow-scroll'>
             <div className='mt-14'>
                 {
                     SidebarItem.Top.map((item, index) => {

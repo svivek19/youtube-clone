@@ -1,11 +1,34 @@
 import React from 'react'
+import { MdVerified } from 'react-icons/md'
 
-const Video = ({ thumbnail, duration, title, channel, views, uploadTime }) => {
-  console.log(thumbnail, duration, title, channel, views, uploadTime);
+const Video = ({ thumbnail, duration, logo, name, channel, views, uploadTime }) => {
+  // console.log(thumbnail, duration, name, channel, views, uploadTime);
+  // console.log(name)
   return (
-    <div>
-      videos
-
+    <div className='flex flex-col max-w-[260px] cursor-pointer'>
+      <div className='relative w-full '>
+        <img src={thumbnail} alt='thumbnail' className='rounded-2xl overflow-hidden ' />
+        <p className='absolute right-2 top-[85%] px-1 text-xs rounded bg-black text-white'>
+          {duration}
+        </p>
+      </div>
+      <div className='flex mt-3'>
+        <img src={logo} alt="channel-logo" className='h-9 w-9 rounded-full' />
+        <div className='ml-2'>
+          <h2 className='font-medium text-white text-sm mt-0 mb-0 items-center'>
+          {name.length <= 50 ? name : `${name.substr(0,50)}...`}
+          </h2>
+          <h3 className='text-gray-500 mt-1 flex text-xs items-center'>
+            {channel}
+            <span className='p-1'>
+              <MdVerified />
+            </span>
+          </h3>
+          <p className='text-gray-500 m-0 items-center text-xs'>
+            {views} - {uploadTime}
+          </p>
+        </div>
+      </div>
     </div>
   )
 }
