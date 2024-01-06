@@ -5,10 +5,16 @@ import { collection, onSnapshot, query } from 'firebase/firestore'
 import { db } from '../firebase'
 import { Link } from 'react-router-dom'
 import Video from '../components/Video'
+import { onAuthStateChanged } from 'firebase/auth'
+import { useDispatch } from 'react-redux'
+import { setUser } from '../slices/userSlice'
+import { auth } from '../firebase'
 
 const Home = () => {
 
   const [videos, setVideos] = useState([])
+  const dispatch = useDispatch()
+
   useEffect(() => {
     const q = query(collection(db, "videos"));
     onSnapshot(q, (snapShot) => {
@@ -22,6 +28,18 @@ const Home = () => {
   }, []);
 
   // console.log(videos);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(setUser(user));
+      }
+      else {
+        dispatch(setUser(null));
+      }
+    })
+  })
+
 
   return (
     <div className='flex'>
@@ -46,10 +64,10 @@ const Home = () => {
             ) : (
               videos.map((video, index) => {
                 // console.log("Video details:", video);
-                return(
-                <Link to={`/video/${video.id}`} key={video.id}>
-                  <Video {...video}/>
-                </Link>
+                return (
+                  <Link to={`/video/${video.id}`} key={video.id}>
+                    <Video {...video} />
+                  </Link>
                 )
               })
             )

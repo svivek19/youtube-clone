@@ -5,15 +5,28 @@ import { BiVideoPlus } from 'react-icons/bi'
 import { FaRegBell } from 'react-icons/fa'
 import logo from '../assets/yt-logo.png'
 import { Link } from 'react-router-dom'
-import { signInWithPopup} from 'firebase/auth'
-import {auth, provider} from '../firebase'
-
+import { signInWithPopup, signOut } from 'firebase/auth'
+import { auth, provider } from '../firebase'
+import { useDispatch, useSelector } from 'react-redux'
+import { setUser, getUser, logout } from '../slices/userSlice'
 
 const Navbar = () => {
 
-  const handleLogin = async()=>{
+  const dispatch = useDispatch()
+  const user = useSelector(getUser)
+
+  const handleLogin = async () => {
     const response = await signInWithPopup(auth, provider);
-    console.log(response); 
+    dispatch(setUser(response.user));
+    // console.log(response); 
+
+  }
+
+  // console.log(user);
+
+  const handleLogout = async () =>{
+    dispatch(logout())
+    await signOut(auth);
   }
 
 
@@ -52,10 +65,22 @@ const Navbar = () => {
             <FaRegBell size={20} className='text-white text-center' />
           </div>
           <div className='mx-3 items-center cursor-pointer'>
-            <button className='bg-red-600 py-1 px-4 text-white rounded-md'
-            onClick={handleLogin}>
-              Sign In
-            </button>
+            {
+              !user ? (
+                <button className='bg-red-600 py-1 px-4 text-white rounded-md'
+                  onClick={handleLogin}>
+                  Sign In
+                </button>
+              ) : (
+                <img 
+                src={user.photoURL} 
+                alt={user.displayName} 
+                className='objject-contain rounded-full cursor-pointer w-10 h-10' 
+                onClick={handleLogout}
+                />
+              )
+            }
+
           </div>
         </div>
       </div>
