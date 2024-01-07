@@ -37,7 +37,7 @@ const Video = () => {
           frameBorder='0'
           allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
           allowFullScreen
-          className='w-full h-[500px] lg:h-[700px]'
+          className='w-full h-[700px]'
         ></iframe>
       </div>
       <div className='ml-5 flex flex-col items-start'>
@@ -56,7 +56,7 @@ const Video = () => {
             Subscribe
           </button>
           <div className='flex pl-28'>
-            <div className='flex dim-gray items-center rounded-2xl h-10 mx-1 hover:bg-gray-900'>
+            <div className='flex dim-gray items-center rounded-2xl h-10 mx-1 hover:bg-[#1d1d1d]'>
               <div className='flex px-3 items-center border-r-2 cursor-pointer'>
                 <AiFillLike className='text-2xl text-white' />
                 <p className='text-white pl-2 pr-3 text-sm font-semibold'>300K</p>
@@ -65,10 +65,32 @@ const Video = () => {
                 <BiDislike className='text-2xl text-white' />
               </div>
             </div>
-            
+            <div className='flex dim-gray items-center h-10 rounded-2xl mx-1 cursor-pointer hover:bg-[#1d1d1d]'>
+              <div className='px-3 flex items-center cursor-pointer'>
+                <RiShareForwardLine className='text-2xl text-white font-thin' />
+                <p className='text-white pl-2 pr-3 text-sm font-semibold'>Share</p>
+              </div>
+            </div>
+            <div className='flex dim-gray items-center h-10 rounded-2xl mx-1 cursor-pointer hover:bg-[#1d1d1d]'>
+              <div className='px-3 flex items-center cursor-pointer'>
+                <HiDownload className='text-2xl text-white font-thin' />
+                <p className='text-white pl-2 pr-3 text-sm font-semibold'>Download</p>
+              </div>
+            </div>
           </div>
-
+          <div className='flex dim-gray cursor-pointer items-center hover:bg-[#1d1d1d] rounded-full justify-center w-10 h-10 text-white'>
+            <HiDotsHorizontal />
+          </div>
         </div>
+      </div>
+      <div className='max-w-4xl dim-gray mt-4 rounded-2xl p-3 text-white text-sm'>
+        <div className='flex'>
+          <p className='font-medium pr-3'>
+            {data?.views}
+          </p>
+          <p className='font-medium pr-3'>{data?.uploadTime}</p>
+        </div>
+        <span className='text-center font-medium'>{data?.description}</span>
       </div>
     </div>
   )
