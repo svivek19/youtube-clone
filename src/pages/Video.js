@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { doc, onSnapshot, query } from 'firebase/firestore';
-import { db } from '../firebase'
+import { addDoc, collection, doc, onSnapshot, query } from 'firebase/firestore';
+import { auth, db, timestamp } from '../firebase'
 import { AiFillLike } from 'react-icons/ai'
 import { BiDislike } from 'react-icons/bi'
 import { RiShareForwardLine } from 'react-icons/ri'
 import { HiDotsHorizontal, HiDownload } from 'react-icons/hi'
 import { MdOutlineSort } from 'react-icons/md'
+import { useDispatch, useSelector } from 'react-redux';
+import { getUser, setUser } from '../slices/userSlice'
+import { onAuthStateChanged } from 'firebase/auth';
+import Comment from '../components/Comment';
+
 
 
 const Video = () => {
@@ -15,18 +20,67 @@ const Video = () => {
   const [comments, setComments] = useState([]);
   const [data, setData] = useState(null);
 
+  const [comment, setComment] = useState("");
+
   const { id } = useParams();
   // console.log(id);
+  const dispatch = useDispatch()
+  const user = useSelector(getUser);
+
+
   useEffect(() => {
     if (id) {
       const q = query(doc(db, "videos", id));
-      onSnapshot(q, (snapshot) => {
-        setData(snapshot.data())
-      })
+      onSnapshot(q, (snapShot) => {
+        setData(snapShot.data());
+      });
+      const commentsQuery = query(collection(db, "videos", id, "comments"));
+      onSnapshot(commentsQuery, (snapShot) => {
+        setComments(
+          snapShot.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }))
+        );
+      });
     }
-  }, [])
+  }, [id]);
 
-  // console.log(data);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(setUser(user));
+      } else {
+        dispatch(setUser(null));
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    const q = query(collection(db, "videos"));
+    onSnapshot(q, (snapShot) => {
+      setVideos(
+        snapShot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }))
+      );
+    });
+  }, []);
+
+  const addComment = async (e) => {
+    e.preventDefault();
+    let commentData = {
+      image: user.photoURL,
+      name: user.displayName,
+      comment,
+      uploaded: timestamp,
+    };
+    if (id) {
+      await addDoc(collection(db, "videos", id, "comments"), commentData);
+      setComment("");
+    }
+  };
 
   return (
     <div className='py-20 px-9 items-start'>
@@ -91,6 +145,26 @@ const Video = () => {
           <p className='font-medium pr-3'>{data?.uploadTime}</p>
         </div>
         <span className='text-center font-medium'>{data?.description}</span>
+      </div>
+      <div className='flex text-white mt-5'>
+        <h1>{comments.length} Comments</h1>
+        <div className='flex items-center mx-10'>
+          <MdOutlineSort size={30} className='mx-3' />
+          <h5>Sort by</h5>
+        </div>
+      </div>
+      {
+        user && (
+          <form className='flex w-[800px] pt-4 items-start' onSubmit={addComment}>
+            <img src={user?.photoURL} alt='profile' className='rounded-full h-12 w-12 mr-3' />
+            <input type='text' placeholder='Add a comment...' className='text-white bg-[transparent] border-b border-b-[#1d1d1d] outline-none text-sm p-1 w-full' value={comment} onChange={(e) => setComment(e.target.value)} />
+          </form>
+        )
+      }
+      <div className='mt-4'>
+        {comments.map((item,i)=>(
+          <Comment key={i} {...item}/>
+        ))}
       </div>
     </div>
   )
