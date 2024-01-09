@@ -38,7 +38,7 @@ const Navbar = () => {
           <HiOutlineBars3 />
         </div>
 
-        <div className='py-5 w-24 mx-3 '>
+        <div className='py-5 w-20 md:w-24 mx-3 '>
           <Link to="/">
             <img src={logo} alt='yt-logo' className='object-contain' />
           </Link>
@@ -46,23 +46,23 @@ const Navbar = () => {
       </div>
 
       <div className='h-10 flex flex-row items-center'>
-        <div className='w-[594px] bg-black lg:flex border border-slate-900 items-center rounded-3xl h-10'>
-          <input type='text' placeholder='Search' className='w-full bg-black h-6 ml-6 text-white text-start focus:outline-none pl-4' />
-          <button className='w-16 h-10 dim-gray px-1 py-0.5 rounded-r-3xl border-l-2 border-slate-900'>
-            <HiMagnifyingGlass size={22} className='text-white mx-auto text-center' />
+        <div className='w-full md:w-[594px] bg-black lg:flex md:border md:border-slate-900 items-center rounded-3xl h-10'>
+          <input type='text' placeholder='Search' className='w-full hidden md:block bg-black h-6 ml-6 text-white text-start focus:outline-none pl-4' />
+          <button className='md:w-16 h-10 md:dim-gray px-1 py-0.5 rounded-r-3xl md:border-l-2 md:border-slate-900'>
+            <HiMagnifyingGlass size={22} className='text-white md:mx-auto text-center' />
           </button>
         </div>
-        <div className='text-white dim-gray w-10 h-10 items-center flex justify-center rounded-full ml-4 dim-hover cursor-pointer'>
-          <MdMic size={23} />
+        <div className='text-white md:dim-gray w-10 h-10 items-center flex justify-center rounded-full ml-4 dim-hover md:block cursor-pointer'>
+          <MdMic size={23} className='hidden md:block'/>
         </div>
       </div>
       <div className='flex items-center justify-center'>
         <div className='flex flex-row items-center'>
-          <div className='mr-2 p-2 w-10 dim-hover rounded-full cursor-pointer'>
+          <div className='mr-2 p-2 w-10 dim-hover rounded-full hidden md:block cursor-pointer'>
             <BiVideoPlus className='text-white text-center' size={25} />
           </div>
-          <div className='mx-3 p-2 w-10 dim-hover rounded-full cursor-pointer'>
-            <FaRegBell size={20} className='text-white text-center' />
+          <div className='mx-3 p-2 w-10 dim-hover rounded-full hidden md:block cursor-pointer'>
+            <FaRegBell size={20} className='text-white text-center hidden md:block' />
           </div>
           <div className='mx-3 items-center cursor-pointer'>
             {
