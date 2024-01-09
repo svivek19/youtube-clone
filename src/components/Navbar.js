@@ -64,7 +64,7 @@ const Navbar = () => {
           <div className='mx-3 p-2 w-10 dim-hover rounded-full hidden md:block cursor-pointer'>
             <FaRegBell size={20} className='text-white text-center hidden md:block' />
           </div>
-          <div className='mx-3 items-center cursor-pointer'>
+          <div className='mr-5 md:mr-0 md:mx-3 items-center cursor-pointer'>
             {
               !user ? (
                 <button className='bg-red-600 py-1 px-4 text-white rounded-md'

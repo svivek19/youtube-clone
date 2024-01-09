@@ -46,7 +46,7 @@ const Home = () => {
       <div>
         <Sidebar />
       </div>
-      <div className='w-[calc(100%-240px)] h-[calc(100%-53px)] pt-16 bg-black pb-3'>
+      <div className='w-full md:w-[calc(100%-240px)] h-[calc(100%-53px)] pt-16 bg-black pb-3'>
         <div className='flex flex-row overflow-x-scroll relative scrollbar-hide ml-3'>
           {
             CategoryItems.map((item, i) => {
@@ -57,7 +57,7 @@ const Home = () => {
           }
         </div>
 
-        <div className='pt-12 px-5 grid grid-cols-4 gap-x-3 gap-y-8'>
+        <div className='pt-12 px-5 md:grid md:grid-cols-4 md:gap-x-3 md:gap-y-8'>
           {
             videos.length === 0 ? (
               <div className='h-[86vh]'></div>
