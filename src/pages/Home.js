@@ -57,7 +57,7 @@ const Home = () => {
           }
         </div>
 
-        <div className='pt-12 px-5 md:grid md:grid-cols-4 md:gap-x-3 md:gap-y-8'>
+        <div className='pt-12 px-0 md:px-5 md:grid md:grid-cols-4 md:gap-x-3 md:gap-y-8'>
           {
             videos.length === 0 ? (
               <div className='h-[86vh]'></div>

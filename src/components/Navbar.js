@@ -52,8 +52,8 @@ const Navbar = () => {
             <HiMagnifyingGlass size={22} className='text-white md:mx-auto text-center' />
           </button>
         </div>
-        <div className='text-white md:dim-gray w-10 h-10 items-center flex justify-center rounded-full ml-4 dim-hover md:block cursor-pointer'>
-          <MdMic size={23} className='hidden md:block'/>
+        <div className='text-white md:dim-gray w-10 h-10 items-center flex justify-center rounded-full ml-4 dim-hover hidden mt-4 md:block cursor-pointer'>
+          <MdMic size={23}/>
         </div>
       </div>
       <div className='flex items-center justify-center'>
