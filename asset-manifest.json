@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/youtube-clone/static/css/main.88eb9fc9.css",
+    "main.js": "/youtube-clone/static/js/main.7c59a5c6.js",
+    "static/media/yt-logo.png": "/youtube-clone/static/media/yt-logo.06f7ab26131e38ec4c4c.png",
+    "index.html": "/youtube-clone/index.html",
+    "main.88eb9fc9.css.map": "/youtube-clone/static/css/main.88eb9fc9.css.map",
+    "main.7c59a5c6.js.map": "/youtube-clone/static/js/main.7c59a5c6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.88eb9fc9.css",
+    "static/js/main.7c59a5c6.js"
+  ]
+}
