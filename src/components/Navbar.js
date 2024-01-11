@@ -1,5 +1,4 @@
 import React from 'react'
-import { MdMic } from 'react-icons/md'
 import { HiOutlineBars3, HiMagnifyingGlass } from 'react-icons/hi2'
 import { BiVideoPlus } from 'react-icons/bi'
 import { FaRegBell } from 'react-icons/fa'
@@ -51,9 +50,6 @@ const Navbar = () => {
           <button className='md:w-16 h-10 md:dim-gray px-1 py-0.5 rounded-r-3xl md:border-l-2 md:border-slate-900'>
             <HiMagnifyingGlass size={22} className='text-white md:mx-auto text-center' />
           </button>
-        </div>
-        <div className='text-white md:dim-gray w-10 h-10 items-center flex justify-center rounded-full ml-4 dim-hover hidden mt-4 md:block cursor-pointer'>
-          <MdMic size={23}/>
         </div>
       </div>
       <div className='flex items-center justify-center'>
