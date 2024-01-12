@@ -19,7 +19,9 @@ body {
 .dim-hover:hover{
     background-color: rgb(17, 17, 17);
 }
-
+.nav-img{
+    margin-left: 7rem;
+}
 
 
 
